@@ -9,12 +9,20 @@ import random
 
 class agent():
         
-    def __init__ (self,environment,agents): 
-       self._x = random.randint(0,99) 
-       self._y = random.randint(0,99)
-       self.environment = environment
-       self.store = 0
-       self.agents = agents 
+    def __init__ (self,environment,agents, y = None, x = None):
+        if (x == None):
+            self._x = random.randint(0,299)
+        else:
+            self._x = x
+            
+        if (y == None):
+            self._y = random.randint(0,299)
+        else:
+            self._y = y
+        
+        self.environment = environment
+        self.store = 0
+        self.agents = agents 
        
     def getx(self):
         return self._x
@@ -36,9 +44,9 @@ class agent():
     def mover(self, xory, distance, probabilityStayStill):
         if random.random() < probabilityStayStill:
             if random.random() < 0.5:
-                xory = (xory + distance) % 100
+                xory = (xory + distance) % 300
             else:
-                xory = (xory - distance) % 100
+                xory = (xory - distance) % 300
         return xory
     
     def move(self):
