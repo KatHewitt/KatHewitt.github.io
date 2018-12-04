@@ -32,19 +32,63 @@ class agent():
          del self._y
     y = property (gety, sety, dely, "y-coordinate of agents")
 #
-#    
+#   
+    def mover(self, xory, distance, probabilityStayStill):
+        if random.random() < probabilityStayStill:
+            if random.random() < 0.5:
+                xory = (xory + distance) % 100
+            else:
+                xory = (xory - distance) % 100
+        return xory
+    
     def move(self):
-        if random.random() < 0.5:
-            self._y = (self._y + 1) % 100
+        self.sety(self.mover(self._y, 1, 0.5))
+        self.setx(self.mover(self._x, 1, 0.5))
+                
+#    def move(self):
+#        if random.random() < 0.5:
+#            if random.random() < 0.5:
+#                self._y = (self._y + 1) % 100
+#            else:
+#                self._y= (self._y - 1) % 100        
+#        if random.random() < 0.5:
+#            if random.random() < 0.5:
+#                self._x = (self._x + 1) % 100
+#            else:
+#                self._x = (self._x - 1) % 100           
+     
+    def move_faster(self):
+        if self.store > 50:
+            self.sety(self.mover(self._y, 2, 0.5))
+            self.setx(self.mover(self._x, 2, 0.5))
         else:
-            self._y= (self._y - 1) % 100
-
-        if random.random() < 0.5:
-            self._x = (self._x + 1) % 100
-        else:
-            self._x = (self._x - 1) % 100           
-#           
-#            
+            self.sety(self.mover(self._y, 1, 0.5))
+            self.setx(self.mover(self._x, 1, 0.5))
+#    def move_faster(self):
+#        if self.store > 50:
+#            if random.random() < 0.5:
+#                self._y = (self._y + 2) % 100
+#            else:
+#                self._y= (self._y - 2) % 100
+#        else:
+#            if random.random() < 0.5:
+#                self._y = (self._y + 1) % 100
+#            else:
+#                self._y= (self._y - 1) % 100
+#
+#        if self.store > 50:
+#             if random.random() < 0.5:
+#                 self._x = (self._x + 2) % 100
+#             else:
+#                 self._x = (self._x - 2) % 100 
+#        else:
+#             if random.random() < 0.5:
+#                 self._x = (self._x + 1) % 100
+#             else:
+#                 self._x = (self._x - 1) % 100 
+            
+                     
+#          
     def eat(self): 
         if self.environment[self._y][self._x] > 10:
             self.environment[self._y][self._x] -= 10
@@ -70,11 +114,6 @@ class agent():
 
 ##agent.getstore() and agent.setstore(ave)
 
-#move quicker if they have more resources 
-#move def - define 1 as soemthign and when this is above 50 they move 2 
-
-#add wolves to eat nearby sheep 
-#change number of agents - loops lecture (removing things from lists)
 
 
 #import sys
