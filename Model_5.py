@@ -2,8 +2,14 @@
 """
 Created on Tue Nov  6 14:03:03 2018
 
+ABM: Creates agents with starting locations from scraped web page. Agents move randonly eating the environment
+and sharing with neighbours.
+Development = agents move quicker if they have eaten more of the environmnet. 
 @author: gy18kah
 """
+
+#agents created with starting locations scraped from web page (data scraping) 
+
 import random
 import operator
 import matplotlib.pyplot as plt
@@ -16,8 +22,6 @@ matplotlib.use('TkAgg')
 import matplotlib.backends.backend_tkagg
 import requests
 import bs4
-
-
 
 
 environment = []
@@ -46,9 +50,6 @@ neighbourhood = 20
 agents = []
 
 
-
-# Make the agents.
-
 #scrape a web page to get the agent starting locations 
 r = requests.get('http://www.geog.leeds.ac.uk/courses/computing/practicals/python/agent-framework/part9/data.html')
 content = r.text
@@ -58,51 +59,14 @@ td_xs = soup.find_all(attrs={"class" : "x"})
 #print(td_ys)
 #print(td_xs)
 
+
+# Make the agents.
 for i in range(num_of_agents):
     #instead of random starting positions, use locations from scraped web page
     y = int(td_ys[i].text)
     x = int(td_xs[i].text)
     agents.append(agentframework3.agent(environment,agents, y, x))
     
-
-
-#for a in agents:
-#    print(a.getx(), a.gety())
-#print ("----------",agents[0].getx())
-#print ("----------",agents[0].gety())
-
-
-
-# Move the agents.
-#for j in range(num_of_iterations):
-#    random.shuffle(agents)
-#    for i in range(num_of_agents):
-#        #randomise the order in which agents are processed each iteration
-#
-#        #agents[i].move()
-#        #substituted for this one - advanced model 
-#        #print to find out if it does
-#        agents[i].move_faster()
-#        agents[i].eat()
-#        agents[i].share_with_neighbourhood(neighbourhood)
-
-#matplotlib.pyplot.xlim(0, 99)
-#matplotlib.pyplot.ylim(0, 99)
-#matplotlib.pyplot.imshow(environment)
-
-#for i in range(num_of_agents):
-#    matplotlib.pyplot.scatter(agents[i].x,agents[i].y)
-#matplotlib.pyplot.show()
-#
-#for agents_row_a in agents:
-#    for agents_row_b in agents:
-#        distance = distance_between(agents_row_a, agents_row_b)
-#        
-#a = agentframework3.agent(environment,agents)
-#print (a.y, a.x)
-#a.move()
-#print (a.y, a.x)
-
 
 fig = plt.figure(figsize=(7,7))
 ax = fig.add_axes([0,0,1,1])
@@ -116,14 +80,16 @@ carry_on = True
 def update (frame_number):
     global carry_on
     fig.clear() 
+    
+    #Make axes
     matplotlib.pyplot.xlim(0, 299)
     matplotlib.pyplot.ylim(0, 299)
     matplotlib.pyplot.imshow(environment)
 
     for i in range(num_of_agents):
-        agents[i].move_faster()
+        agents[i].move_faster() #development from just 'move' agents 'moves faster' with more food
         agents[i].eat()
-        agents[i].share_with_neighbourhood(neighbourhood)
+        agents[i].share_with_neighbourhood(neighbourhood) #share with other agents that are within units
 #            if random.random() < 0.5:
 #                agents[i][0]  = (agents[i][0] + 1) % 99 
 #            else:
@@ -139,13 +105,14 @@ def update (frame_number):
         print("stopping condition")
         
     for i in range(num_of_agents):
+        #plot
         matplotlib.pyplot.scatter(agents[i].x,agents[i].y)
         print(agents[i].x,agents[i].y)
 
 
 def gen_function(b = [0]):
     a = 0
-    global carry_on #not needed as were not assigning, but clearer
+    global carry_on #not needed as were not assigning
     while (a<1000) & (carry_on) :
         yield a            #returns control and waits next call
         a = a+1
@@ -163,9 +130,7 @@ def run():
     animation = matplotlib.animation.FuncAnimation (fig, update, frames=gen_function, repeat=False)
     canvas.show()
 
-#set up GUI usign tkinter
-
-
+#set up GUI usign tkinter, creates window and a menu
 root = tkinter.Tk() #main window
 root.wm_title("Model")
 canvas = matplotlib.backends.backend_tkagg.FigureCanvasTkAgg(fig, master=root)
