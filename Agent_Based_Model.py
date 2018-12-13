@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
+Description: 
+Make a y variable 
+Make a x variable 
+Change y and x based on random numbers.
+Make a second set of y and xs, and make these change randomly as well.
+Work out the distance between the two sets of y and xs.
 
-This is a temporary script file.
 """
+#First addition
 import random 
 y0 = 50 
 x0 = 50 
@@ -36,6 +41,7 @@ print (answer2)
 # randomise starting points is 100x100 grid 
 # integer values between 0 and 99 
 
+#Second addition: code shrunk 
 import random 
 y0 = 50
 x0 = 50
