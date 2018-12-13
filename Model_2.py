@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Nov  6 14:03:03 2018
-
+Import data to use as out agents environment and get them to interact with it 
 @author: gy18kah
 """
 import random
