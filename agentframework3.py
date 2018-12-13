@@ -41,7 +41,7 @@ class agent():
          del self._y
     y = property (gety, sety, dely, "y-coordinate of agents")
 
-#FIRST ADDITION: moveING agents randomly                
+#FIRST ADDITION: moving agents randomly                
 #    def move(self):
 #        if random.random() < 0.5:
 #            if random.random() < 0.5:
