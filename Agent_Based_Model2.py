@@ -7,13 +7,16 @@ This is a temporary script file.
 import matplotlib.pyplot
 import operator
 import random 
-agents = []
+
+agents = [] #Make new empty a list 
+
 agents.append([random.randint(0,99), random.randint(0,99)])
 agents.append([random.randint(0,99), random.randint(0,99)])
 agents.append([random.randint(0,99), random.randint(0,99)])
 #agents.append([random.randint(0,99),random.randint(0,99)])
 #agents.append([random.randint(0,99),random.randint(0,99)])
 #agents.append([random.randint(0,99),random.randint(0,99)])
+
 print(agents)
 print(agents[0])
 print(agents[0][0])
@@ -25,14 +28,13 @@ print(agents[1][1])
 #print(agents[2][0])
 #print(agents[2][1])
 
-
 answer = (((agents[0][0] - agents[1][0]) ** 2) + ((agents[0][1] - agents[1][1]) ** 2)) ** 0.5
-
 print(answer)
 
-print(max(agents))
-print (max(agents, key=operator.itemgetter(1)))
+print(max(agents)) #works out which is the largest (tes)
+print (max(agents, key=operator.itemgetter(1))) #this gets second element
 
+#plot agent locations
 matplotlib.pyplot.ylim(0, 99)
 matplotlib.pyplot.xlim(0, 99)
 matplotlib.pyplot.scatter(agents[0][1],agents[0][0], color='red')
@@ -40,7 +42,7 @@ matplotlib.pyplot.scatter(agents[1][1],agents[1][0], color='blue')
 matplotlib.pyplot.show()
 
 
-
+#Last Weeks code 
 '''
 y0 = 50 
 x0 = 50 
