@@ -43,7 +43,9 @@ for i in range(num_of_agents):
 for a in agents:
     print(a.getx(), a.gety())
 
-
+#test
+for a in agents:
+    print(a.getx(), a.gety())
 print ("----------",agents[0].getx())
 print ("----------",agents[0].gety())
 
