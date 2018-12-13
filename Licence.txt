@@ -1,0 +1,9 @@
+Licence 
+
+2018
+Kathryn Hewitt https://github.com/KatHewitt
+University of Leeds
+python 
+Agent Based Modelling 
+
+All licenses in this repository are copyrighted by their respective authors
