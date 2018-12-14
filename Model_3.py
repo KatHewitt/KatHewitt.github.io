@@ -47,7 +47,7 @@ for a in agents:
 print ("----------",agents[0].getx())
 print ("----------",agents[0].gety())
 
-# Move the agents.
+# Move, eat and share with neighbour 
 for j in range(num_of_iterations):
     random.shuffle(agents)
     for i in range(num_of_agents):
@@ -112,6 +112,7 @@ def gen_function(b = [0]):
         yield a            #returns control and waits next call
         a = a+1
 
+#animation
 
 #animation = matplotlib.animation.FuncAnimation(fig, update, interval=1, repeat=False, frames=num_of_iterations)
 animation = matplotlib.animation.FuncAnimation(fig, update, frames=gen_function, repeat=False)
