@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Nov  6 14:03:03 2018
-
-@author: gy18kah
+Agents
+Kathryn Hewitt
 """
 import random
 import operator
 import matplotlib.pyplot
 import agentframework
 
+#return distance
 def distance_between(agents_row_a, agents_row_b):
     return (((agents_row_a.x - agents_row_b.x)**2) + 
     ((agents_row_a.y - agents_row_b.y)**2))**0.5
