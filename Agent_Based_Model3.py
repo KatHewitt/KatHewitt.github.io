@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
+Code shrinking 2
+Kathryn Hewitt 
 
-This is a temporary script file.
 """
 import matplotlib.pyplot
 import operator
@@ -66,23 +66,27 @@ print(maxy)
 
 matplotlib.pyplot.ylim(-1, 100)
 matplotlib.pyplot.xlim(-1, 100)
+
 #plotting
 #matplotlib.pyplot.ylim(miny[1], maxy[1])
 #matplotlib.pyplot.xlim(minx[0], maxx[0])
+
 for i in range(num_of_agents):
     matplotlib.pyplot.scatter(agents[i][1],agents[i][0], color='red')
 #loop for plotting
+
 matplotlib.pyplot.scatter(minx[1],minx[0], color='blue')
 matplotlib.pyplot.scatter(maxx[1],maxx[0], color='pink')
 matplotlib.pyplot.scatter(miny[1],miny[0], color='green')
 matplotlib.pyplot.scatter(maxy[1],maxy[0], color='orange')
 #plotting the highest, lowest, right and left
+
 #matplotlib.pyplot.scatter(agents[1][1],agents[1][0], color='blue')
 #make sure plots are within range
 matplotlib.pyplot.show()
 
 '''
-
+Previous weeks code:
 y0 = 50 
 x0 = 50 
 if random.random() < 0.5:
