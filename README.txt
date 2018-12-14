@@ -16,6 +16,8 @@ The models runs by allowing agents to do their thing for each time step repeated
 
 The code ultimately produces a new window in which the model is run and visualised. 
 
+Where appropriate tests have been incorporated into the model to ensure the models validity and to prevent fatal issues.
+
 
 INSTALLATION AND MODEL INSTRUCTIONS 
 
