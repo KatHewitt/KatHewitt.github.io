@@ -38,7 +38,7 @@ agents = []
 for i in range(num_of_agents):
     agents.append(agentframework.agent(environment))
 
-# Move the agents.
+# Move and eat
 for j in range(num_of_iterations):
     for i in range(num_of_agents):
 
