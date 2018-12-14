@@ -1,9 +1,15 @@
 Licence 
 
-2018
-Kathryn Hewitt https://github.com/KatHewitt
-University of Leeds
-python 
-Agent Based Modelling 
+COPYRIGHT (c) [2018] [Kathryn Hewitt] 
 
-All licenses in this repository are copyrighted by their respective authors
+University of Leeds
+
+Agent Based Modelling: Python Programming 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this python code for an ABM and associated documentation files, to deal
+in the code without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute the code.
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the code.
