@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Nov  6 14:11:11 2018
+Kathryn Hewitt 
 
-@author: gy18kah
+Agent Framework 
+define inside it an Agent class, with an __init__ method
+define move
+
 """
 
 import random
